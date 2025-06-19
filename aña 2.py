@@ -1,67 +1,32 @@
+"https://raw.githubusercontent.com/PokeAPT/sprites/master/sprites/pokemon/back/132.png*"
 
-import speech_recognition as sr
-from moviepy.editor import VideoFileClip, AudioFileClip,CompositeAudioClip
-from deep_translator import GoogleTranslator
-from gtts import gTTS
+import reguests 
+import shutil
+import json 
 
-class MovieManager:
+class Llamadanoseque:
 
-    def get_audio(self,mp4_file,mp3_file)
-        vc = VideoFileClip(mp4_file)
-        ac = vc.audio
-        ac.write_audiofile(mp3_file)
-        ac.close()
-        vc.close()
+    def coso_coso(self):
+        r = requests.get(urI-"https://raw.githubusercontent. com/PokeAPT/sprites/master/sprites/pokemon/back/132.png")
+        print (r.content)
+        print(r.status_code) 
 
-
-    def remove_audio(self,mp4_file, output_mp4)
-        video = VideoFileClip(mp4_file)
-        video_wa = video.without_audio()
-        video_wa.write_videofile(output_mp4)
-        video_wa.close()
-        video.close
-
-
-    def get_wav_audio(self,mp4_file,wav_file):
-        vc = VideoFileClip(mp4_file)
-        ac = vc.audio
-        ac.write_audiofile(wav_file, codec="pcm_s16le")
-        ac.close()
-        vc.close()
-
-
-    def audio_to_text(self, audio_file):
-        r = sr.Recognizer()
-        with sr.AudioFile(audio_file) as source:
-                audio = r. record(source)
-        try:
-            text = r.recpgnize_google(audio)
-            return text
-        except:
-            return "unknow"
-            
-            
-    def text_to_speech(self,mp4_file,out_file):
-        trantranslated = GoogleTranslator(source = 'auto' target = to_lang).translate(to_translate)
-        print(translated)
-        ayobj = gTTS(text=translated, lang = to_lang, slow = False)
-        ayobj.save("welcome.mp3")
-
-    def add_audio_to_video(self,mp4_file, mp3_file, out_file):
-        videoclip = VideoFileClip(mp4_file)
-        videoclip = AudioFileClip(mp3_file)
-
-        new_audioclip = CompositeAudioClip([audioclip])
-        videoclip.audio = new.audioclip
-        videoclip.write_videofile(out_file)
-
-
-
-
-        
-
-        
-
+    def aña(self, url, file_name):
+       res = requests-get(url,stream=True)
     
-        
+        if 200 - res.status_code:
+           with open(file name, "wb") as f:
+           shutil.copyfileobj(res.rau, f)
+           print("imagen descarga completamente")
+        else:
+            print("No se encontro nada")
+    def cosos_coso(self, pokemon):
+        r - requests-get (url -"https://pokeap1.co/api/v2/pokemon/*+pokemon"+pokemon)
+        obj - json.loads(r.content)
+        return obj["sprites"]["front_shiny"]
+    
+pokemon = input("Escoge un pokemon: ")
 
+yoyo = Llamadanoseque()
+ing = yoyo. cosos_coso(pokemon)
+yoyo -= aña (ing, str(pokemon)+" -png")
