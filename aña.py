@@ -1,3 +1,4 @@
+
 from preloaded import MORSE_CODE
 
 def decode_morse(morse_code):
@@ -11,3 +12,11 @@ def decode_morse(morse_code):
         decoded_words.append(decoded_word)
         
     return ' '.join(decoded_words)
+
+def rgb(r, g, b):
+    return "{:02X}{:02X}{:02X}".format(
+        min(max(r, 0), 255),
+        min(max(g, 0), 255),
+        min(max(b, 0), 255)
+    )
+
